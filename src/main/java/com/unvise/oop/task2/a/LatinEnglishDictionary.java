@@ -22,8 +22,9 @@ public class LatinEnglishDictionary {
     public String read(String format) {
         StringBuilder stringBuilder = new StringBuilder();
         for (var entry : latinDictionary.entrySet()) {
+            String values = entry.getValue().toString().replaceAll("[\\[\\]]", "");
             stringBuilder
-                    .append(String.format(format, entry.getKey(), entry.getValue()))
+                    .append(String.format(format, entry.getKey(), values))
                     .append("\n");
         }
         return stringBuilder.toString();
